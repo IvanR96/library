@@ -11,3 +11,6 @@ function Book(title, author, status){
 
 }
 
+function addBookToLibrary() {
+    
+}
