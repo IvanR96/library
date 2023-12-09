@@ -5,30 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif&display=swap" rel="stylesheet">
     <script src="script.js"></script>
 </head>
 <body>
-    <h1>Welcome to the Book Library</h1>
+    <h1>Library App</h1>
 
-    <div class="book-container">
+    <form id="bookForm">
         <div>
             <label for="title">Title</label>
-            <input type="text" name="title" id="title">
+            <input type="text" name="title" id="title" required>
         </div>
         
         <div>
             <label for="author">Author</label>
-            <input type="text" name="author" id="author">
+            <input type="text" name="author" id="author" required>
         </div>
 
         <div>
-            <label for="status">Status</label>
-            <select>
-                <option value="read">Read</option>
-                <option value="not read">Not Read</option>
-            </select>
+            <label for="status">Status(Read or Not Read)</label>
+            <input type="text" name="status" id="status" required>
         </div>
-    </div>
+
+        <button type="submit" onclick="addBookToLibrary()">Add Book</button>
+    </form>
     
 </body>
 </html>
