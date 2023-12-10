@@ -25,5 +25,44 @@ function addBookToLibrary() {
 
     document.getElementById('bookForm').reset();
 
+    showBooks();
+
 }
 
+function removeBook(index){
+    myLibrary.splice(index, 1);
+
+    showBooks();
+}
+
+function showBooks(){
+    let tableBody = document.getElementById('bookTableBody');
+
+    tableBody.innerHTML = '';
+
+    for (let i = 0; i < myLibrary.length; i++){
+        let book = myLibrary[i];
+
+        let row = tableBody.insertRow();
+
+        let titleCell = row.insertCell(0);
+        let authorCell = row.insertCell(1);
+        let statusCell = row.insertCell(2);
+        let actionCell = row.insertCell(3);
+
+
+        titleCell.innerHTML = book.title;
+        authorCell.innerHTML = book.author;
+        statusCell.innerHTML = book.status;
+
+        let removeBtn = document.createElement('button');
+
+        removeBtn.textContent = "Remove";
+        removeBtn.onclick = (function(index) {
+            return function() {
+                removeBook(index);
+            };
+        })(i);
+        actionCell.appendChild(removeBtn);
+    }
+}
