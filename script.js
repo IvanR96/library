@@ -2,17 +2,15 @@
 
 const myLibrary = [];
 
+class Book{
+    constructor(title,author,status){
+        this.title = title;
+        this.author = author;
+        this.status = status;
+    }
 
-function Book(title, author, status){
-    // constructor
-    this.title = title;
-    this.author = author;
-    this.status = status;
-
-}
-
-function addBookToLibrary() {
-    let title = document.getElementById('title').value;
+    addBookToLibrary = () =>{
+        let title = document.getElementById('title').value;
     let author = document.getElementById('author').value;
     let status = document.getElementById('status').value;
 
@@ -26,17 +24,16 @@ function addBookToLibrary() {
     document.getElementById('bookForm').reset();
 
     showBooks();
+    }
 
-}
+    removeBook = (index) =>{
+        myLibrary.splice(index, 1);
 
-function removeBook(index){
-    myLibrary.splice(index, 1);
+        showBooks();
+    }
 
-    showBooks();
-}
-
-function showBooks(){
-    let tableBody = document.getElementById('bookTableBody');
+    showBooks = () =>{
+        let tableBody = document.getElementById('bookTableBody');
 
     tableBody.innerHTML = '';
 
@@ -65,4 +62,6 @@ function showBooks(){
         })(i);
         actionCell.appendChild(removeBtn);
     }
+}
+
 }
