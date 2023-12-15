@@ -1,8 +1,9 @@
 
-
 const myLibrary = [];
 
 class Book{
+
+
     constructor(title,author,status){
         this.title = title;
         this.author = author;
@@ -10,7 +11,7 @@ class Book{
     }
 
     addBookToLibrary = () =>{
-        let title = document.getElementById('title').value;
+    let title = document.getElementById('title').value;
     let author = document.getElementById('author').value;
     let status = document.getElementById('status').value;
 
@@ -23,13 +24,13 @@ class Book{
 
     document.getElementById('bookForm').reset();
 
-    showBooks();
+    this.showBooks();
     }
 
     removeBook = (index) =>{
         myLibrary.splice(index, 1);
 
-        showBooks();
+        this.showBooks();
     }
 
     showBooks = () =>{
@@ -57,7 +58,7 @@ class Book{
         removeBtn.textContent = "Remove";
         removeBtn.onclick = (function(index) {
             return function() {
-                removeBook(index);
+                myBook.removeBook(index);
             };
         })(i);
         actionCell.appendChild(removeBtn);
@@ -65,3 +66,5 @@ class Book{
 }
 
 }
+
+const myBook = new Book();
